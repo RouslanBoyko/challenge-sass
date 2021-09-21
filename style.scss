@@ -1,0 +1,107 @@
+@import "colors";
+@mixin border-shadow($color){
+  -webkit-box-shadow: 10px 10px 15px -4px $color;
+  -moz-box-shadow: 10px 10px 15px -4px $color;
+  box-shadow: 10px 10px 15px -4px $color;
+}
+
+body {
+  font: 100% "Space Mono", monospace;
+  color: $ColorBody;
+  margin: 0;
+  padding: $GlobalPadding;
+  background-color: $ColorBackgroundBody;
+  overflow-x: hidden;
+}
+
+main {
+  padding: $GlobalPadding * 0 $GlobalPadding;
+}
+
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  section {
+    flex-grow: 1;
+    flex-basis: 45%;
+    border: 1px $ColorBorderSection solid;
+    @include border-shadow ($ColorBorderSection);
+    padding: 16px;
+    margin: 16px;
+    clear: both;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+  #selling-points{
+    flex-grow: 2;
+    flex-basis: 100%;
+  }
+  code {
+    background: $ColorBackgroundCode;
+    border: 1px solid $ColorShadowSection;
+    color: $ColorBorderSection;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: $GlobalPadding;
+    display: block;
+    word-wrap: break-word;
+  }
+  .before {
+    float: left;
+    width: 40%;
+  }
+  .after{
+    float: right;
+    width: 40%;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: $ColorTitle;
+}
+
+h2
+{
+  color: $ColorTitle;
+}
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+  padding: $GlobalPadding * 2;
+  margin-bottom: 0;
+  color: $ColorTitle;
+}
+
+.messages {
+  padding: 16px;
+  border: 1px solid $ColorBorderSection;
+  color: $ColorBackgroundBody;
+}
+
+
+.success {
+  @extend .messages;
+  background-color: green;
+}
+
+.error {
+  @extend .messages;
+  background-color: red;
+  &:hover{
+    background-color:green;
+  }
+}
+
+.warning {
+  @extend .messages;
+  background-color: orange;
+}
+
+
